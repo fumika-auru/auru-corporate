@@ -25,6 +25,29 @@ nav a:hover, .text-link:hover { opacity:.55; }
 .hero { min-height:calc(100svh - 120px); position:relative; display:grid; place-items:center; overflow:hidden; background:#afc7c5; isolation:isolate; }
 .hero::before { content:""; position:absolute; inset:-12%; z-index:-1; background:radial-gradient(ellipse at 13% 16%,#abd6ce 0%,transparent 48%),radial-gradient(ellipse at 79% 15%,#577b9c 0%,transparent 50%),radial-gradient(ellipse at 62% 64%,#b1abcb 0%,transparent 43%),radial-gradient(ellipse at 8% 86%,#89b6a5 0%,transparent 48%),radial-gradient(ellipse at 98% 96%,#afcca4 0%,transparent 43%); filter:blur(35px); }
 h1 { font-family:"AURU Optima",Optima,"Palatino Linotype",serif; margin:0; padding-left:.18em; font-size:clamp(70px,12vw,190px); font-weight:400; letter-spacing:.18em; line-height:1; }
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-category {
+  margin: 32px 0 0;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .25em;
+}
+
+.hero-tagline {
+  margin: 12px 0 0;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: .22em;
+  opacity: .7;
+}
 .section { background:var(--paper); padding:clamp(90px,13vw,190px) clamp(26px,8vw,150px); }
 .section-label { font-family:Arial,"Helvetica Neue",sans-serif; display:block; font-size:10px; letter-spacing:.16em; text-transform:uppercase; margin-bottom:58px; }
 .philosophy { min-height:85vh; display:flex; flex-direction:column; justify-content:center; }
@@ -64,7 +87,13 @@ footer { background:var(--paper); padding:30px clamp(26px,8vw,150px); border-top
 <body>
 <header><a class="company" href="#home">株式会社AURU</a><nav aria-label="メインメニュー"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav></header>
 <main>
-<section class="hero" id="home" aria-label="AURU"><h1>AURU</h1></section>
+<section class="hero" id="home" aria-label="AURU">
+  <div class="hero-content">
+    <h1>AURU</h1>
+    <p class="hero-category">FASHION COMPANY</p>
+    <p class="hero-tagline">CREATING & CONNECTING.</p>
+  </div>
+</section>
 <section class="section philosophy" id="about"><span class="section-label">01 / Philosophy</span><h2 class="statement">心が動く方へ。</h2><p class="lead">「好き」「気になる」「やってみたい」。<br>そんな心の動きを、大切にしたい。<br><br>ときめくものに出会うこと。<br>ときめく人と出会うこと。<br>自分の感覚を信じて、何かを選ぶこと。<br><br>小さな心の動きが、毎日を少し豊かにし、<br>ときには人生を動かしていく。<br><br>AURUは、人の心を動かすものをつくり、つなぎ、育てることで、<br>心が潤う瞬間を増やしていきます。</p>
 <div class="principles"><article><span class="section-label">Mission</span><h3>ときめきを、かたちにする。</h3><p>ファッション、ブランド、場所、仕組み。<br>さまざまなかたちを通して、心が動くものを社会へ届けていく。</p></article><article><span class="section-label">Vision</span><h3>ときめきで、心が潤う世界へ。</h3><p>場所や立場を越えて、人、もの、想いが行き交い、<br>新しいときめきが生まれていく世界を目指します。</p></article></div>
 <div class="values"><article><span class="section-label">Value 01</span><h4>Follow Your Heart</h4><p>心が動く方へ。<br>自分たちの感覚に正直でいる。</p></article><article><span class="section-label">Value 02</span><h4>Create</h4><p>ときめきを、かたちに。<br>想像で終わらせず、実際の価値へ変える。</p></article><article><span class="section-label">Value 03</span><h4>Connect</h4><p>ときめきを、つなぐ。<br>人、もの、文化、場所をつなぐ。</p></article></div>
