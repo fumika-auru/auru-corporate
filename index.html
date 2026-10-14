@@ -587,6 +587,53 @@
           margin-top: 28px;
         }
       }
+      /* ==========================
+          Filo Logo Position Fix
+        ========================== */
+
+        .project .filo-logo-heading {
+          margin: 0;
+          padding: 0;
+          font-size: 0;
+          line-height: 1;
+          height: 120px;
+          display: flex;
+          align-items: flex-start;
+          overflow: visible;
+        }
+
+        .project .filo-logo {
+          display: block;
+          width: 300px;
+          max-width: none;
+          height: auto;
+          object-fit: contain;
+
+          /* 画像内の余白を補正 */
+          margin-left: -75px;
+          margin-top: -55px;
+        }
+
+        .project .filo-logo-heading + .project-type {
+          display: block;
+          margin-top: 38px;
+        }
+
+        @media (max-width: 700px) {
+          .project .filo-logo-heading {
+            height: 95px;
+          }
+
+          .project .filo-logo {
+            width: 240px;
+            margin-left: -60px;
+            margin-top: -44px;
+          }
+
+          .project .filo-logo-heading + .project-type {
+            margin-top: 28px;
+          }
+        }
   </style>
 </head>
 
@@ -763,7 +810,13 @@
       <article class="project">
 
         <div>
-          <h3>Filo</h3>
+          <h3 class="filo-logo-heading">
+            <img
+              src="./Filo_logo_main.png"
+              alt="Filo"
+              class="filo-logo"
+            >
+          </h3>
           <span class="project-type">Fashion Platform / Project</span>
         </div>
 
