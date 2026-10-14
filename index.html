@@ -552,6 +552,41 @@
       }
     }
 
+   /* ==========================
+        Siu Logo
+      ========================== */
+
+      .project .siu-logo-heading {
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        font-size: 0;
+      }
+
+      .project .siu-logo {
+        display: block;
+        width: clamp(100px, 10vw, 140px);
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      /* ロゴとFashion Brandの余白 */
+      .project .siu-logo-heading + .project-type {
+        display: block;
+        margin-top: 38px;
+      }
+
+      /* Smartphone */
+      @media (max-width: 700px) {
+        .project .siu-logo {
+          width: 110px;
+        }
+
+        .project .siu-logo-heading + .project-type {
+          margin-top: 28px;
+        }
+      }
   </style>
 </head>
 
@@ -695,7 +730,13 @@
       <article class="project">
 
         <div>
-          <h3>Siu</h3>
+          <h3 class="siu-logo-heading">
+            <img
+              src="./Siu_logo.png"
+              alt="Siu"
+              class="siu-logo"
+            >
+          </h3>
           <span class="project-type">Fashion Brand</span>
         </div>
 
