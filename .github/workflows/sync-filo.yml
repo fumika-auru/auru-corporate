@@ -1,0 +1,70 @@
+
+name: Sync Filo to filo-site
+
+# Filoの変更時と手動実行時に同期
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "filo/**"
+      - ".github/workflows/sync-filo.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-filo
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      # AURUのファイルを取得
+      - name: Checkout AURU
+        uses: actions/checkout@v4
+        with:
+          path: source
+          persist-credentials: false
+
+      # Filoの公開用リポジトリを取得
+      - name: Checkout Filo
+        uses: actions/checkout@v4
+        with:
+          repository: fumika-auru/filo-site
+          ref: main
+          token: ${{ secrets.FILO_DEPLOY_TOKEN }}
+          path: publish
+
+      # FiloのHTMLとロゴをコピー
+      - name: Copy Filo files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test -f source/filo/index.html
+          test -f source/filo/Filo_logo_main.png
+          test -f publish/CNAME
+
+          cp source/filo/index.html publish/index.html
+          cp source/filo/Filo_logo_main.png publish/Filo_logo_main.png
+
+      # 変更があった場合のみCommit・Push
+      - name: Commit and push Filo
+        working-directory: publish
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -- index.html Filo_logo_main.png
+
+          if git diff --cached --quiet; then
+            echo "No Filo changes to publish."
+          else
+            git commit -m "Sync Filo from auru-corporate"
+            git push origin HEAD:main
+          fi
