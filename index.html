@@ -71,35 +71,81 @@
       </section>
 
       <!-- 03 / PROJECTS：事業の詳細説明ではなく、入口として見せる -->
-      <section class="home-section home-projects" id="projects" aria-labelledby="home-projects-title">
-        <div class="home-section__meta">02 / OUR PROJECTS</div>
-        <div class="home-projects__heading">
-          <h2 id="home-projects-title">Projects</h2>
-          <p>AURUが手がけるプロジェクト</p>
+      <section class="home-projects" id="projects">
+        <div class="home-projects__head">
+          <span class="home-projects__label">02 / Projects</span>
+          <h2 class="home-projects__title">Our Projects</h2>
         </div>
-        <div class="home-projects__grid">
-          <article class="home-project">
-            <div class="home-project__logo home-project__logo--siu">
-              <img src="./asset/Siu_logo.png" alt="Siu">
-            </div>
-            <p class="home-project__type">FASHION BRAND</p>
-            <p class="home-project__description">心が動く服を、日常へ。<br>ファッションブランド Siu。</p>
-            <div class="home-project__links">
-              <span class="home-coming-soon">Online Store — Coming Soon</span>
-              <a class="home-text-link" href="https://www.instagram.com/siuatelier_/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+
+        <div class="project-split">
+
+          <!-- Siu -->
+          <article class="project-panel project-panel--siu">
+            <div class="project-panel__inner">
+              <div class="project-panel__top">
+                <span class="project-panel__eyebrow">Fashion Brand</span>
+              </div>
+
+              <div class="project-panel__main">
+                <img
+                  src="./asset/Siu_logo.png"
+                  alt="Siu"
+                  class="project-panel__logo project-panel__logo--siu"
+                >
+
+                <p class="project-panel__description">
+                  心が動く服を、日常へ。
+                </p>
+              </div>
+
+              <div class="project-panel__links">
+                <a
+                  href="https://www.instagram.com/siuatelier_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-panel__link"
+                >Instagram ↗</a>
+
+                <span class="project-panel__soon">Website — Coming Soon</span>
+              </div>
             </div>
           </article>
-          <article class="home-project">
-            <div class="home-project__logo home-project__logo--filo">
-              <img src="./asset/Filo_logo_main.png" alt="Filo">
-            </div>
-            <p class="home-project__type">FASHION PLATFORM</p>
-            <p class="home-project__description">大切な瞬間と、その先をつなぐ、<br>ファッションプラットフォーム Filo。</p>
-            <div class="home-project__links">
-              <a class="home-text-link" href="https://filo.auru.co.jp/">Website <span aria-hidden="true">↗</span></a>
-              <a class="home-text-link" href="https://www.instagram.com/filo.offical/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+
+          <!-- Filo -->
+          <article class="project-panel project-panel--filo">
+            <div class="project-panel__inner">
+              <div class="project-panel__top">
+                <span class="project-panel__eyebrow">Fashion Platform</span>
+              </div>
+
+              <div class="project-panel__main">
+                <img
+                  src="./asset/Filo_logo_main.png"
+                  alt="Filo"
+                  class="project-panel__logo project-panel__logo--filo"
+                >
+
+                <p class="project-panel__description">
+                  大切な瞬間と、その先をつなぐ。
+                </p>
+              </div>
+
+              <div class="project-panel__links">
+                <a
+                  href="https://filo.auru.co.jp/"
+                  class="project-panel__link"
+                >Website ↗</a>
+
+                <a
+                  href="https://www.instagram.com/filo.offical/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-panel__link"
+                >Instagram ↗</a>
+              </div>
             </div>
           </article>
+
         </div>
       </section>
     </main>

@@ -2,7 +2,11 @@
 .about-content { padding-top: clamp(95px, 11vw, 165px); }
 .about-philosophy { max-width: 1120px; }
 .about-philosophy > h2 { margin: 0 0 clamp(55px, 6vw, 95px); font-weight: 300; font-size: clamp(43px, 6vw, 90px); line-height: 1.5; letter-spacing: .06em; }
-.about-philosophy__body { margin-left: auto; max-width: 670px; }
+
+.about-philosophy__body {
+  margin-left: 0;
+  max-width: 670px;
+}
 .about-philosophy__body p { margin: 0 0 34px; font-size: 14px; line-height: 2.8; letter-spacing: .035em; }
 .about-philosophy__body p:last-child { margin-bottom: 0; }
 .about-directions, .about-values { margin-top: clamp(120px, 13vw, 190px); }
