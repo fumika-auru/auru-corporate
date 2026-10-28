@@ -1,0 +1,27 @@
+/* ABOUT専用CSS：共通デザインはsubpages.cssを使用 */
+.about-content { padding-top: clamp(95px, 11vw, 165px); }
+.about-philosophy { max-width: 1120px; }
+.about-philosophy > h2 { margin: 0 0 clamp(55px, 6vw, 95px); font-weight: 300; font-size: clamp(43px, 6vw, 90px); line-height: 1.5; letter-spacing: .06em; }
+.about-philosophy__body { margin-left: auto; max-width: 670px; }
+.about-philosophy__body p { margin: 0 0 34px; font-size: 14px; line-height: 2.8; letter-spacing: .035em; }
+.about-philosophy__body p:last-child { margin-bottom: 0; }
+.about-directions, .about-values { margin-top: clamp(120px, 13vw, 190px); }
+.about-directions__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(45px, 8vw, 125px); }
+.about-directions__grid article, .about-values__grid article { border-top: 1px solid var(--line); padding-top: 32px; }
+.about-small-label { font: 400 10px Arial, sans-serif; color: var(--muted); letter-spacing: .14em; }
+.about-directions h3 { margin: 40px 0 23px; font-weight: 400; font-size: clamp(25px, 3vw, 42px); line-height: 1.8; letter-spacing: .035em; }
+.about-directions p { font-size: 14px; line-height: 2.6; margin: 0; }
+.about-values__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(22px, 4vw, 65px); }
+.about-values h3 { margin: 38px 0 20px; font-size: clamp(19px, 2vw, 26px); font-family: var(--serif); font-weight: 400; }
+.about-values p { margin: 0; font-size: 13px; line-height: 2.5; }
+.about-end { margin-top: 130px; text-align: right; }
+.about-end a { display: inline-flex; gap: 42px; padding: 0 0 10px; font-family: var(--serif); font-size: clamp(24px, 3.1vw, 40px); border-bottom: 1px solid currentColor; }
+@media (max-width: 700px) {
+  .about-philosophy > h2 { margin-bottom: 45px; }
+  .about-philosophy__body { margin-left: 0; }
+  .about-philosophy__body p { font-size: 13px; }
+  .about-directions__grid, .about-values__grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-directions, .about-values { margin-top: 100px; }
+  .about-directions h3, .about-values h3 { margin-top: 25px; }
+  .about-end { margin-top: 90px; text-align: left; }
+}

@@ -1,916 +1,114 @@
-
 <!doctype html>
 <html lang="ja">
-
 <head>
-  <!-- ========================================
-       基本設定・SEO
-  ======================================== -->
-   <meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fafbf9">
-
+  <meta name="description" content="株式会社AURU（アウル）は、増田文香が代表取締役を務めるファッション企業です。ファッションブランドSiu、ファッションプラットフォームFiloの企画・運営・開発を行っています。">
   <title>株式会社AURU（アウル）｜Siu・Filoを手がけるファッション企業</title>
-
-  <meta name="description" content="株式会社AURU（アウル）は、増田文香が代表取締役を務めるファッション企業です。ファッションブランド「Siu」の企画・運営、ファッションプラットフォーム「Filo」の企画・開発などを行っています。">
-
   <link rel="canonical" href="https://auru.co.jp/">
-  <link rel="icon" type="image/png" href="/asset/favicon.png">
-
-  <style>
-    /* ========================================
-       01. フォント設定・共通カラー
-    ======================================== */
-
-    @font-face {
-      font-family: "AURU Optima";
-      src: local("OptimaLTPro-Roman"), local("Optima LT Pro Roman"), local("Optima LT Pro");
-      font-weight: 400;
-      font-display: swap;
-    }
-
-    :root {
-      --ink: #303431;
-      --paper: #fafbf9;
-      --line: #dcded9;
-      --font-jp: "Noto Sans JP", sans-serif;
-      --font-en: "Cormorant Garamond", Georgia, serif;
-    }
-
-
-    /* ========================================
-       02. サイト全体の基本設定
-    ======================================== */
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      padding: 10px;
-      background: #f1f2f0;
-      color: var(--ink);
-      font-family: var(--font-jp);
-      font-weight: 400;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:focus-visible {
-      outline: 2px solid var(--ink);
-      outline-offset: 6px;
-    }
-
-
-    /* ========================================
-       03. ヘッダー・ナビゲーション
-    ======================================== */
-
-    header {
-      height: 100px;
-      background: var(--paper);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 36px;
-    }
-
-    .company {
-      font-size: 12px;
-      letter-spacing: .09em;
-    }
-
-    nav {
-      display: flex;
-      gap: 34px;
-    }
-
-    nav a {
-      font-size: 11px;
-      letter-spacing: .07em;
-      padding: 12px 0;
-    }
-
-    nav a:hover,
-    .text-link:hover {
-      opacity: .55;
-    }
-
-
-    /* ========================================
-       04. HERO（トップのAURUロゴ・背景）
-    ======================================== */
-
-    /* オーロラ背景のベース */
-    .hero {
-      min-height: calc(100svh - 120px);
-      position: relative;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background: #afc7c5;
-      isolation: isolate;
-    }
-
-    /* オーロラ風グラデーション */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: -12%;
-      z-index: -1;
-      background:
-        radial-gradient(ellipse at 13% 16%, #abd6ce 0%, transparent 48%),
-        radial-gradient(ellipse at 79% 15%, #577b9c 0%, transparent 50%),
-        radial-gradient(ellipse at 62% 64%, #b1abcb 0%, transparent 43%),
-        radial-gradient(ellipse at 8% 86%, #89b6a5 0%, transparent 48%),
-        radial-gradient(ellipse at 98% 96%, #afcca4 0%, transparent 43%);
-      filter: blur(35px);
-    }
-
-    /* AURUロゴ */
-    h1 {
-      font-family: "AURU Optima", Optima, "Palatino Linotype", serif;
-      margin: 0;
-      padding-left: .18em;
-      font-size: clamp(70px, 12vw, 190px);
-      font-weight: 400;
-      letter-spacing: .18em;
-      line-height: 1;
-    }
-
-    /* ロゴとコピーの配置 */
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    /* FASHION COMPANY */
-    .hero-category {
-      margin: 32px 0 0;
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: .25em;
-    }
-
-    /* CREATING & CONNECTING. */
-    .hero-tagline {
-      margin: 12px 0 0;
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: .22em;
-      opacity: .7;
-    }
-
-
-    /* ========================================
-       05. 共通セクション
-    ======================================== */
-
-    .section {
-      background: var(--paper);
-      padding: clamp(90px, 13vw, 190px) clamp(26px, 8vw, 150px);
-    }
-
-    .section-label {
-      font-family: Arial, "Helvetica Neue", sans-serif;
-      display: block;
-      font-size: 10px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      margin-bottom: 58px;
-    }
-
-
-    /* ========================================
-       06. PHILOSOPHY（理念）
-    ======================================== */
-
-    .philosophy {
-      min-height: 85vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    /* 心が動く方へ。 */
-    .statement {
-      font-family: var(--font-jp);
-      font-weight: 300;
-      font-size: clamp(36px, 5.5vw, 80px);
-      letter-spacing: .09em;
-      line-height: 1.5;
-      margin: 0 0 48px;
-    }
-
-    /* 理念の本文 */
-    .lead {
-      font-weight: 400;
-      max-width: 620px;
-      font-size: 14px;
-      line-height: 2.8;
-      letter-spacing: .06em;
-    }
-
-
-    /* ========================================
-       07. MISSION / VISION
-    ======================================== */
-
-    .principles {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(50px, 8vw, 140px);
-      margin-top: 130px;
-    }
-
-    .principles h3 {
-      font-family: var(--font-jp);
-      font-size: clamp(25px, 2.8vw, 39px);
-      letter-spacing: .035em;
-      line-height: 1.65;
-      font-weight: 400;
-      margin: 0 0 22px;
-    }
-
-    .principles p,
-    .values p {
-      font-size: 14px;
-      line-height: 2.4;
-      letter-spacing: .025em;
-    }
-
-
-    /* ========================================
-       08. VALUES（3つの価値観）
-    ======================================== */
-
-    .values {
-      border-top: 1px solid var(--line);
-      margin-top: 100px;
-      padding-top: 55px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-    }
-
-    .values h4 {
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: .1em;
-    }
-
-
-    /* ========================================
-       09. PROJECTS（Siu / Filo）
-    ======================================== */
-
-    .projects {
-      background: #efefeb;
-    }
-
-    .projects-intro {
-      font-family: var(--font-en);
-      font-size: clamp(44px, 5vw, 70px);
-      font-weight: 400;
-      margin: 0 0 65px;
-    }
-
-    /* 各プロジェクトのレイアウト */
-    .project {
-      border-top: 1px solid #bfc2bc;
-      padding: 55px 0 75px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-    }
-
-    /* Siu / Filo の大きな見出し */
-    .project h3 {
-      font-family: "AURU Optima", Optima, serif;
-      font-size: clamp(55px, 9vw, 120px);
-      font-weight: 400;
-      margin: 0;
-    }
-
-    .project-type {
-      font-size: 11px;
-      letter-spacing: .1em;
-    }
-
-    .project-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 22px;
-    }
-
-    .project-info p {
-      font-size: 14px;
-      line-height: 2.5;
-      max-width: 400px;
-      margin: 0;
-    }
-
-    /* COMING SOON などの表示 */
-    .status {
-      font-size: 10px;
-      letter-spacing: .14em;
-      color: #717872;
-    }
-
-    /* Instagramなどのリンク */
-    .text-link {
-      font-size: 12px;
-      border-bottom: 1px solid currentColor;
-      padding-bottom: 7px;
-    }
-
-
-    /* ========================================
-       10. COMPANY（会社概要）
-    ======================================== */
-
-    .company-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 60px;
-    }
-
-    .company-grid h2 {
-      font-family: var(--font-en);
-      font-size: clamp(44px, 5vw, 70px);
-      font-weight: 400;
-      margin: 0;
-    }
-
-    .company-table {
-      margin: 0;
-    }
-
-    .company-table div {
-      font-family: var(--font-jp);
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 20px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .company-table dt {
-      color: #757a75;
-    }
-
-    .company-table dd {
-      margin: 0;
-    }
-
-
-    /* ========================================
-       11. CONTACT（お問い合わせ）
-    ======================================== */
-
-    .contact {
-      padding-bottom: 140px;
-    }
-
-    .contact h2 {
-      font-family: var(--font-en);
-      font-size: clamp(44px, 5vw, 70px);
-      font-weight: 400;
-      margin: 0 0 35px;
-    }
-
-    .contact .email {
-      font-size: 13px;
-      line-height: 1.8;
-      font-family: var(--font-jp);
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 10px;
-      overflow-wrap: anywhere;
-    }
-
-
-    /* ========================================
-       12. FOOTER（最下部）
-    ======================================== */
-
-    footer {
-      background: var(--paper);
-      padding: 30px clamp(26px, 8vw, 150px);
-      border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      font-size: 10px;
-      letter-spacing: .08em;
-    }
-
-
-    /* ========================================
-       13. スマートフォン表示
-       画面幅700px以下に適用
-    ======================================== */
-
-    @media (max-width: 700px) {
-
-      /* 全体 */
-      body {
-        padding: 6px;
+  <link rel="icon" type="image/png" href="./asset/favicon.png">
+  <link rel="stylesheet" href="./asset/subpages.css">
+  <link rel="stylesheet" href="./asset/home.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://auru.co.jp/#organization",
+        "name": "株式会社AURU",
+        "alternateName": ["AURU", "アウル", "AURU Inc."],
+        "url": "https://auru.co.jp/",
+        "foundingDate": "2026-10-01",
+        "email": "info@auru.co.jp"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://auru.co.jp/#website",
+        "url": "https://auru.co.jp/",
+        "name": "株式会社AURU",
+        "publisher": { "@id": "https://auru.co.jp/#organization" }
       }
-
-      /* ヘッダー */
-      header {
-        height: 80px;
-        padding: 0 19px;
-      }
-
-      .company {
-        font-size: 10px;
-      }
-
-      nav {
-        gap: 18px;
-      }
-
-      nav a {
-        font-size: 10px;
-      }
-
-      /* トップ */
-      .hero {
-        min-height: calc(100svh - 92px);
-      }
-
-      h1 {
-        font-size: 19vw;
-        letter-spacing: .13em;
-        padding-left: .13em;
-      }
-
-      /* 共通セクション */
-      .section {
-        padding: 85px 24px;
-      }
-
-      .statement {
-        font-size: clamp(30px, 8vw, 44px);
-      }
-
-      .principles h3 {
-        font-size: clamp(24px, 6vw, 32px);
-      }
-
-      .projects-intro {
-        font-size: clamp(44px, 5vw, 70px);
-      }
-
-      .section-label {
-        margin-bottom: 48px;
-      }
-
-      .lead {
-        font-size: 13px;
-      }
-
-      /* Mission / Vision */
-      .principles {
-        grid-template-columns: 1fr;
-        margin-top: 90px;
-        gap: 45px;
-      }
-
-      /* Values */
-      .values {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        margin-top: 70px;
-      }
-
-      /* Projects */
-      .project {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 35px 0 55px;
-      }
-
-      .project-info {
-        gap: 18px;
-      }
-
-      /* Company */
-      .company-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .company-table div {
-        grid-template-columns: 95px 1fr;
-        gap: 12px;
-        font-size: 12px;
-      }
-
-      /* Contact */
-      .contact {
-        padding-bottom: 100px;
-      }
-
-      /* Footer */
-      footer {
-        padding: 25px 24px;
-      }
-
-    }
-
-
-    /* ========================================
-       14. アニメーション軽減設定
-    ======================================== */
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-    }
-
-   /* ==========================
-        Siu Logo
-      ========================== */
-
-      .project .siu-logo-heading {
-        margin: 0;
-        padding: 0;
-        line-height: 1;
-        font-size: 0;
-      }
-
-      .project .siu-logo {
-        display: block;
-        width: clamp(100px, 10vw, 140px);
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
-      }
-
-      /* ロゴとFashion Brandの余白 */
-      .project .siu-logo-heading + .project-type {
-        display: block;
-        margin-top: 38px;
-      }
-
-      /* Smartphone */
-      @media (max-width: 700px) {
-        .project .siu-logo {
-          width: 110px;
-        }
-
-        .project .siu-logo-heading + .project-type {
-          margin-top: 28px;
-        }
-      }
-      /* ==========================
-          Filo Logo Position Fix
-        ========================== */
-
-        .project .filo-logo-heading {
-          margin: 0;
-          padding: 0;
-          font-size: 0;
-          line-height: 1;
-          height: 120px;
-          display: flex;
-          align-items: flex-start;
-          overflow: visible;
-        }
-
-        .project .filo-logo {
-          display: block;
-          width: 300px;
-          max-width: none;
-          height: auto;
-          object-fit: contain;
-
-          /* 画像内の余白を補正 */
-          margin-left: -75px;
-          margin-top: -55px;
-        }
-
-        .project .filo-logo-heading + .project-type {
-          display: block;
-          margin-top: 38px;
-        }
-
-        @media (max-width: 700px) {
-          .project .filo-logo-heading {
-            height: 95px;
-          }
-
-          .project .filo-logo {
-            width: 240px;
-            margin-left: -60px;
-            margin-top: -44px;
-          }
-
-          .project .filo-logo-heading + .project-type {
-            margin-top: 28px;
-          }
-        }
-  </style>
+    ]
+  }
+  </script>
 </head>
-
-
 <body>
+  <div class="site">
+    <!-- 全ページ共通のナビゲーション -->
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="AURU トップページ">AURU</a>
+      <nav class="site-nav" aria-label="メインメニュー">
+        <a href="./" aria-current="page">Home</a>
+        <a href="./about/">About</a>
+        <a href="./news/">News</a>
+        <a href="./company/">Company</a>
+      </nav>
+    </header>
 
-  <!-- ========================================
-       HEADER
-       会社名・ナビゲーション
-  ======================================== -->
-
-  <header>
-    <a class="company" href="#home">株式会社AURU</a>
-
-    <nav aria-label="メインメニュー">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-
-  <main>
-
-    <!-- ========================================
-         01. HERO
-         AURUロゴ・会社カテゴリー・タグライン
-    ======================================== -->
-
-    <section class="hero" id="home" aria-label="AURU">
-      <div class="hero-content">
-        <h1>AURU</h1>
-        <p class="hero-category">FASHION COMPANY</p>
-        <p class="hero-tagline">CREATING & CONNECTING.</p>
-      </div>
-    </section>
-
-
-    <!-- ========================================
-         02. PHILOSOPHY
-         企業理念・Mission・Vision・Values
-    ======================================== -->
-
-    <section class="section philosophy" id="about">
-
-      <span class="section-label">01 / Philosophy</span>
-
-      <!-- メインメッセージ -->
-      <h2 class="statement">心が動く方へ。</h2>
-
-      <!-- 理念本文 -->
-      <p class="lead">
-        「好き」「気になる」「やってみたい」。<br>
-        そんな心の動きを、大切にしたい。<br><br>
-
-        ときめくものに出会うこと。<br>
-        ときめく人と出会うこと。<br>
-        自分の感覚を信じて、何かを選ぶこと。<br><br>
-
-        小さな心の動きが、毎日を少し豊かにし、<br>
-        ときには人生を動かしていく。<br><br>
-
-        AURUは、人の心を動かすものをつくり、つなぎ、育てることで、<br>
-        心が潤う瞬間を増やしていきます。
-      </p>
-
-
-      <!-- Mission / Vision -->
-      <div class="principles">
-
-        <article>
-          <span class="section-label">Mission</span>
-          <h3>ときめきを、かたちにする。</h3>
-          <p>
-            ファッション、ブランド、場所、仕組み。<br>
-            さまざまなかたちを通して、心が動くものを社会へ届けていく。
-          </p>
-        </article>
-
-        <article>
-          <span class="section-label">Vision</span>
-          <h3>ときめきが、人と世界をつないでいく。</h3>
-          <p>
-            ファッションを通して、人や文化をつなぎ、<br>
-            新しい出会いと可能性を生み出す。<br>
-            一人ひとりの人生に寄り添いながら、<br>
-            心が動く瞬間にあふれる未来を目指します。
-          </p>
-        </article>
-
-      </div>
-
-
-      <!-- Values：3つの価値観 -->
-      <div class="values">
-
-        <article>
-          <span class="section-label">Value 01</span>
-          <h4>Follow Your Heart</h4>
-          <p>
-            心が動く方へ。<br>
-            自分たちの感覚に正直でいる。
-          </p>
-        </article>
-
-        <article>
-          <span class="section-label">Value 02</span>
-          <h4>Create</h4>
-          <p>
-            ときめきを、かたちに。<br>
-            想像で終わらせず、実際の価値へ変える。
-          </p>
-        </article>
-
-        <article>
-          <span class="section-label">Value 03</span>
-          <h4>Connect</h4>
-          <p>
-            ときめきを、つなぐ。<br>
-            人、もの、文化、場所をつなぐ。
-          </p>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- ========================================
-         03. PROJECTS
-         Siu・Filoの事業紹介
-    ======================================== -->
-
-    <section class="section projects" id="projects">
-
-      <span class="section-label">02 / Our Projects</span>
-      <h2 class="projects-intro">Projects</h2>
-
-
-      <!-- Siu：ファッションブランド -->
-      <article class="project">
-
-        <div>
-          <h3 class="siu-logo-heading">
-            <img
-              src="./asset/Siu_logo.png
-"
-              alt="Siu"
-              class="siu-logo"
-            >
-          </h3>
-          <span class="project-type">Fashion Brand</span>
+    <main>
+      <!-- 01 / HERO：既存のオーロラ背景とロゴを継承 -->
+      <section class="home-hero" aria-labelledby="home-title">
+        <div class="home-hero__inner">
+          <h1 id="home-title">AURU</h1>
+          <p class="home-hero__category">FASHION COMPANY</p>
+          <p class="home-hero__tagline">CREATING &amp; CONNECTING.</p>
         </div>
+        <span class="home-hero__scroll" aria-hidden="true">SCROLL ↓</span>
+      </section>
 
-        <div class="project-info">
-          <p>
-            心が動く服を、日常へ。<br>
-            ファッションブランド Siu。
-          </p>
-
-          <span class="status">ONLINE STORE — COMING SOON</span>
-
-          <a
-            class="text-link"
-            href="https://www.instagram.com/siuatelier_/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Instagram ↗</a>
-        </div>
-
-      </article>
-
-
-      <!-- Filo：ファッションプラットフォーム -->
-      <article class="project">
-
-        <div>
-          <h3 class="filo-logo-heading">
-            <img
-              src="./asset/Filo_logo_main.png"
-              alt="Filo"
-              class="filo-logo"
-            >
-          </h3>
-          <span class="project-type">Fashion Platform / Project</span>
-        </div>
-
-        <div class="project-info">
-          <p>
-            人生の節目とデザイナーをつなぐ、<br>
-            ファッションプラットフォーム Filo。
-          </p>  
-
-          <a class="text-link" href="https://filo.auru.co.jp/">
-            Website ↗
-          </a>
-          <a class="text-link" href="https://www.instagram.com/filo.offical/" target="_blank" rel="noopener noreferrer">
-            Instagram ↗
-          </a>
-        </div>
-
-      </article>
-
-    </section>
-
-
-    <!-- ========================================
-         04. COMPANY
-         会社概要
-    ======================================== -->
-
-    <section class="section" id="company">
-
-      <span class="section-label">03 / Company</span>
-
-      <div class="company-grid">
-
-        <h2>Company</h2>
-
-        <dl class="company-table">
-
-          <div>
-            <dt>会社名</dt>
-            <dd>
-              株式会社AURU<br>
-              AURU Inc.
-            </dd>
+      <!-- 02 / ABOUT：短い紹介にとどめ、詳しい理念はABOUTへ -->
+      <section class="home-section home-about" aria-labelledby="home-about-title">
+        <div class="home-section__meta">01 / ABOUT AURU</div>
+        <div class="home-about__grid">
+          <h2 id="home-about-title">心が動く方へ。</h2>
+          <div class="home-about__detail">
+            <p>ファッションを通して、<br>人の心を動かすものをつくり、つなぎ、育てる。</p>
+            <a class="home-text-link" href="./about/">About AURU <span aria-hidden="true">↗</span></a>
           </div>
+        </div>
+      </section>
 
-          <div>
-            <dt>設立</dt>
-            <dd>2026年10月1日</dd>
-          </div>
+      <!-- 03 / PROJECTS：事業の詳細説明ではなく、入口として見せる -->
+      <section class="home-section home-projects" id="projects" aria-labelledby="home-projects-title">
+        <div class="home-section__meta">02 / OUR PROJECTS</div>
+        <div class="home-projects__heading">
+          <h2 id="home-projects-title">Projects</h2>
+          <p>AURUが手がけるプロジェクト</p>
+        </div>
+        <div class="home-projects__grid">
+          <article class="home-project">
+            <div class="home-project__logo home-project__logo--siu">
+              <img src="./asset/Siu_logo.png" alt="Siu">
+            </div>
+            <p class="home-project__type">FASHION BRAND</p>
+            <p class="home-project__description">心が動く服を、日常へ。<br>ファッションブランド Siu。</p>
+            <div class="home-project__links">
+              <span class="home-coming-soon">Online Store — Coming Soon</span>
+              <a class="home-text-link" href="https://www.instagram.com/siuatelier_/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="home-project">
+            <div class="home-project__logo home-project__logo--filo">
+              <img src="./asset/Filo_logo_main.png" alt="Filo">
+            </div>
+            <p class="home-project__type">FASHION PLATFORM</p>
+            <p class="home-project__description">大切な瞬間と、その先をつなぐ、<br>ファッションプラットフォーム Filo。</p>
+            <div class="home-project__links">
+              <a class="home-text-link" href="https://filo.auru.co.jp/">Website <span aria-hidden="true">↗</span></a>
+              <a class="home-text-link" href="https://www.instagram.com/filo.offical/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
 
-          <div>
-            <dt>代表取締役</dt>
-            <dd>増田 文香</dd>
-          </div>
-
-          <div>
-            <dt>事業</dt>
-            <dd>
-              ファッションブランド「Siu」の企画・運営、
-              ファッションプラットフォーム「Filo」の企画・開発、
-              その他アパレル・ファッション関連事業
-            </dd>
-
-        </dl>
-
-      </div>
-
-    </section>
-
-
-    <!-- ========================================
-         05. CONTACT
-         お問い合わせ
-    ======================================== -->
-
-    <section class="section contact" id="contact">
-
-      <span class="section-label">04 / Contact</span>
-
-      <h2>Contact</h2>
-
-      <a class="email" href="mailto:info@auru.co.jp">
-        info@auru.co.jp ↗
-      </a>
-
-    </section>
-
-  </main>
-
-
-  <!-- ========================================
-       FOOTER
-       コピーライト・ページトップへのリンク
-  ======================================== -->
-
-  <footer>
-    <span>© 2026 AURU Inc.</span>
-    <a href="#home">Back to top ↑</a>
-  </footer>
-
+    <footer class="site-footer home-footer">
+      <span>© 2026 AURU Inc.</span>
+      <a href="mailto:info@auru.co.jp">Contact ↗</a>
+      <a href="#home-title">Back to top ↑</a>
+    </footer>
+  </div>
 </body>
 </html>

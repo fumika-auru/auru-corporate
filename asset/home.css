@@ -1,0 +1,83 @@
+/* HOME専用CSS：共通ヘッダー・フッターはsubpages.cssを使用 */
+@font-face {
+  font-family: "AURU Optima";
+  src: local("OptimaLTPro-Roman"), local("Optima LT Pro Roman"), local("Optima LT Pro");
+  font-weight: 400;
+  font-display: swap;
+}
+.home-hero {
+  position: relative;
+  min-height: calc(100svh - 120px);
+  min-height: max(590px, calc(100svh - 120px));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #afc7c5;
+  isolation: isolate;
+}
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 13% 16%, #abd6ce 0%, transparent 48%),
+    radial-gradient(ellipse at 79% 15%, #577b9c 0%, transparent 50%),
+    radial-gradient(ellipse at 62% 64%, #b1abcb 0%, transparent 43%),
+    radial-gradient(ellipse at 8% 86%, #89b6a5 0%, transparent 48%),
+    radial-gradient(ellipse at 98% 96%, #afcca4 0%, transparent 43%);
+  filter: blur(35px);
+}
+.home-hero__inner { text-align: center; }
+.home-hero h1 {
+  font-family: "AURU Optima", Optima, "Palatino Linotype", serif;
+  margin: 0;
+  padding-left: .18em;
+  font-weight: 400;
+  font-size: clamp(70px, 12vw, 190px);
+  letter-spacing: .18em;
+  line-height: 1;
+}
+.home-hero__category { margin: 32px 0 0; font: 400 12px Arial, sans-serif; letter-spacing: .25em; }
+.home-hero__tagline { margin: 12px 0 0; font: 400 10px Arial, sans-serif; letter-spacing: .22em; opacity: .7; }
+.home-hero__scroll { position: absolute; right: clamp(28px, 8vw, 150px); bottom: 35px; font: 9px Arial, sans-serif; letter-spacing: .16em; }
+.home-section { padding: clamp(95px, 11vw, 155px) clamp(28px, 8vw, 150px); }
+.home-section__meta { font: 400 10px Arial, sans-serif; letter-spacing: .16em; margin-bottom: 65px; }
+.home-about { background: var(--paper); }
+.home-about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(50px, 8vw, 120px); align-items: start; }
+.home-about h2 { margin: 0; font-size: clamp(35px, 4.8vw, 76px); letter-spacing: .06em; line-height: 1.5; font-weight: 300; }
+.home-about__detail { max-width: 500px; }
+.home-about__detail p { font-size: clamp(13px, 1.15vw, 15px); letter-spacing: .04em; line-height: 2.6; margin: 0 0 36px; }
+.home-text-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 22px; border-bottom: 1px solid currentColor; padding: 0 0 7px; font-size: 12px; letter-spacing: .07em; }
+.home-projects { background: #efefeb; }
+.home-projects__heading { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 54px; }
+.home-projects__heading h2 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(55px, 7vw, 93px); line-height: .95; }
+.home-projects__heading p { margin: 0; font-size: 12px; letter-spacing: .06em; color: var(--muted); }
+.home-projects__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(35px, 6vw, 90px); }
+.home-project { border-top: 1px solid #bfc2bc; padding: 47px 0 0; min-width: 0; }
+.home-project__logo { display: flex; align-items: center; height: 128px; overflow: hidden; }
+.home-project__logo--siu img { display: block; width: 135px; height: auto; }
+/* Filoのロゴ画像にある余白を補正（旧HOMEと同様） */
+.home-project__logo--filo img { display: block; width: 325px; max-width: none; height: auto; transform: translate(-80px, -51px); }
+.home-project__type { margin: 0 0 27px; font: 400 10px Arial, sans-serif; letter-spacing: .14em; }
+.home-project__description { margin: 0; font-size: 14px; line-height: 2.35; min-height: 70px; }
+.home-project__links { display: flex; align-items: center; flex-wrap: wrap; gap: 22px 30px; margin-top: 32px; }
+.home-coming-soon { font-size: 11px; letter-spacing: .03em; color: var(--muted); }
+.home-footer { gap: 20px; }
+.home-footer a { white-space: nowrap; }
+@media (max-width: 700px) {
+  .home-hero { min-height: calc(100svh - 100px); }
+  .home-hero h1 { font-size: 19vw; padding-left: .13em; letter-spacing: .13em; }
+  .home-section { padding: 85px 24px; }
+  .home-section__meta { margin-bottom: 42px; }
+  .home-about__grid, .home-projects__grid { grid-template-columns: 1fr; gap: 38px; }
+  .home-about__detail p { margin-bottom: 28px; }
+  .home-projects__heading { display: block; }
+  .home-projects__heading p { margin-top: 22px; }
+  .home-project { padding-top: 27px; }
+  .home-project__description { min-height: auto; }
+  .home-project__logo--siu img { width: 110px; }
+  .home-project__logo--filo img { width: 290px; transform: translate(-72px, -46px); }
+  .home-footer { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
