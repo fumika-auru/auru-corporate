@@ -1,0 +1,96 @@
+/* ======================================================
+   AURU / COMPANY
+   company/index.html 専用のスタイル
+   ※ common.css の後に読み込む
+====================================================== */
+
+/* Company introduction */
+.intro {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: clamp(35px, 8vw, 120px);
+  margin-bottom: 110px;
+}
+.intro h2 {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(28px, 3.2vw, 46px);
+  line-height: 1.8;
+  letter-spacing: .04em;
+}
+.intro p {
+  margin: 0;
+  max-width: 550px;
+  line-height: 2.7;
+  font-size: 14px;
+  letter-spacing: .03em;
+}
+
+/* Sections */
+.rule-section {
+  border-top: 1px solid var(--line);
+  padding-top: 43px;
+  margin-top: 80px;
+}
+.rule-section h2 {
+  margin: 0 0 38px;
+  font-family: var(--serif);
+  font-size: clamp(45px, 5vw, 72px);
+  font-weight: 400;
+}
+
+/* Profile */
+.data-table { margin: 0; }
+.data-table > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 27px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  line-height: 2;
+}
+.data-table dt { color: var(--muted); }
+.data-table dd { margin: 0; }
+
+/* Projects */
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(25px, 5vw, 80px);
+}
+.project { padding-top: 18px; border-top: 1px solid var(--line); }
+.project h3 {
+  font-family: var(--serif);
+  font-size: 55px;
+  font-weight: 400;
+  margin: 0 0 9px;
+}
+.project p { font-size: 13px; line-height: 2.3; max-width: 410px; }
+.project a {
+  display: inline-block;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 5px;
+  font-size: 11px;
+  letter-spacing: .05em;
+}
+.project-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 30px;
+  margin-top: 25px;
+}
+.project-links .coming-soon {
+  font-size: 11px;
+  letter-spacing: .05em;
+  color: var(--muted);
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .intro, .projects { grid-template-columns: 1fr; gap: 32px; }
+  .intro { margin-bottom: 75px; }
+  .rule-section { margin-top: 60px; }
+  .data-table > div { grid-template-columns: 95px 1fr; gap: 12px; font-size: 12px; }
+}
