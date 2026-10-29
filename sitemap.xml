@@ -16,4 +16,9 @@
     <loc>https://auru.co.jp/company/</loc>
   </url>
 
+  <!-- NEWS -->
+  <url>
+    <loc>https://auru.co.jp/news/</loc>
+  </url>
+
 </urlset>
