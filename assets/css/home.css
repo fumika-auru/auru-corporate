@@ -57,8 +57,6 @@
 .home-project { border-top: 1px solid #bfc2bc; padding: 47px 0 0; min-width: 0; }
 .home-project__logo { display: flex; align-items: center; height: 128px; overflow: hidden; }
 .home-project__logo--siu img { display: block; width: 135px; height: auto; }
-/* Filoのロゴ画像にある余白を補正（旧HOMEと同様） */
-.home-project__logo--filo img { display: block; width: 325px; max-width: none; height: auto; transform: translate(-80px, -51px); }
 .home-project__type { margin: 0 0 27px; font: 400 10px Arial, sans-serif; letter-spacing: .14em; }
 .home-project__description { margin: 0; font-size: 14px; line-height: 2.35; min-height: 70px; }
 .home-project__links { display: flex; align-items: center; flex-wrap: wrap; gap: 22px 30px; margin-top: 32px; }
@@ -77,7 +75,6 @@
   .home-project { padding-top: 27px; }
   .home-project__description { min-height: auto; }
   .home-project__logo--siu img { width: 110px; }
-  .home-project__logo--filo img { width: 290px; transform: translate(-72px, -46px); }
   .home-footer { flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -141,8 +138,8 @@
     }
 
     .project-panel--filo {
-      background: #c5ad90;
-      color: #ffffff;
+      background: #172338;
+      color: #f7f6f3;
     }
 
     .project-panel__eyebrow {
@@ -161,7 +158,9 @@
 
     .project-panel__logo {
       display: block;
-      height: auto;
+      height: 220px;
+      object-fit: contain;
+      object-position: left center;
     }
 
     .project-panel__logo--siu {
@@ -169,7 +168,7 @@
     }
 
     .project-panel__logo--filo {
-      width: clamp(130px, 16vw, 210px);
+      width: clamp(180px, 18vw, 290px);
     }
 
     .project-panel__description {
@@ -223,5 +222,9 @@
 
       .project-panel__description {
         font-size: 15px;
+      }
+
+      .project-panel__logo {
+        height: 180px;
       }
     }
