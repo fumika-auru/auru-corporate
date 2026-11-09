@@ -1,20 +1,30 @@
-/* HOME専用CSS：共通ヘッダー・フッターはsubpages.cssを使用 */
+/* =========================================================
+   AURU | HOME
+   Shared header/footer styles are defined in common.css.
+   This stylesheet only contains styles used by the HOME page.
+   ========================================================= */
+
+/* 01. Typography */
 @font-face {
   font-family: "AURU Optima";
-  src: local("OptimaLTPro-Roman"), local("Optima LT Pro Roman"), local("Optima LT Pro");
+  src: local("OptimaLTPro-Roman"),
+       local("Optima LT Pro Roman"),
+       local("Optima LT Pro");
   font-weight: 400;
   font-display: swap;
 }
+
+/* 02. Hero */
 .home-hero {
   position: relative;
-  min-height: calc(100svh - 120px);
-  min-height: max(590px, calc(100svh - 120px));
   display: grid;
   place-items: center;
+  min-height: max(590px, calc(100svh - 120px));
   overflow: hidden;
-  background: #afc7c5;
   isolation: isolate;
+  background: #afc7c5;
 }
+
 .home-hero::before {
   content: "";
   position: absolute;
@@ -28,228 +38,311 @@
     radial-gradient(ellipse at 98% 96%, #afcca4 0%, transparent 43%);
   filter: blur(35px);
 }
-.home-hero__inner { text-align: center; }
+
+.home-hero__inner {
+  text-align: center;
+}
+
 .home-hero h1 {
-  font-family: "AURU Optima", Optima, "Palatino Linotype", serif;
   margin: 0;
   padding-left: .18em;
-  font-weight: 400;
+  font-family: "AURU Optima", Optima, "Palatino Linotype", serif;
   font-size: clamp(70px, 12vw, 190px);
+  font-weight: 400;
   letter-spacing: .18em;
   line-height: 1;
 }
-.home-hero__category { margin: 32px 0 0; font: 400 12px Arial, sans-serif; letter-spacing: .25em; }
-.home-hero__tagline { margin: 12px 0 0; font: 400 10px Arial, sans-serif; letter-spacing: .22em; opacity: .7; }
-.home-hero__scroll { position: absolute; right: clamp(28px, 8vw, 150px); bottom: 35px; font: 9px Arial, sans-serif; letter-spacing: .16em; }
-.home-section { padding: clamp(95px, 11vw, 155px) clamp(28px, 8vw, 150px); }
-.home-section__meta { font: 400 10px Arial, sans-serif; letter-spacing: .16em; margin-bottom: 65px; }
-.home-about { background: var(--paper); }
-.home-about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(50px, 8vw, 120px); align-items: start; }
-.home-about h2 { margin: 0; font-size: clamp(35px, 4.8vw, 76px); letter-spacing: .06em; line-height: 1.5; font-weight: 300; }
-.home-about__detail { max-width: 500px; }
-.home-about__detail p { font-size: clamp(13px, 1.15vw, 15px); letter-spacing: .04em; line-height: 2.6; margin: 0 0 36px; }
-.home-text-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 22px; border-bottom: 1px solid currentColor; padding: 0 0 7px; font-size: 12px; letter-spacing: .07em; }
-.home-projects { background: #efefeb; }
-.home-projects__heading { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 54px; }
-.home-projects__heading h2 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(55px, 7vw, 93px); line-height: .95; }
-.home-projects__heading p { margin: 0; font-size: 12px; letter-spacing: .06em; color: var(--muted); }
-.home-projects__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(35px, 6vw, 90px); }
-.home-project { border-top: 1px solid #bfc2bc; padding: 47px 0 0; min-width: 0; }
-.home-project__logo { display: flex; align-items: center; height: 128px; overflow: hidden; }
-.home-project__logo--siu img { display: block; width: 135px; height: auto; }
-.home-project__type { margin: 0 0 27px; font: 400 10px Arial, sans-serif; letter-spacing: .14em; }
-.home-project__description { margin: 0; font-size: 14px; line-height: 2.35; min-height: 70px; }
-.home-project__links { display: flex; align-items: center; flex-wrap: wrap; gap: 22px 30px; margin-top: 32px; }
-.home-coming-soon { font-size: 11px; letter-spacing: .03em; color: var(--muted); }
-.home-footer { gap: 20px; }
-.home-footer a { white-space: nowrap; }
-@media (max-width: 700px) {
-  .home-hero { min-height: calc(100svh - 100px); }
-  .home-hero h1 { font-size: 19vw; padding-left: .13em; letter-spacing: .13em; }
-  .home-section { padding: 85px 24px; }
-  .home-section__meta { margin-bottom: 42px; }
-  .home-about__grid, .home-projects__grid { grid-template-columns: 1fr; gap: 38px; }
-  .home-about__detail p { margin-bottom: 28px; }
-  .home-projects__heading { display: block; }
-  .home-projects__heading p { margin-top: 22px; }
-  .home-project { padding-top: 27px; }
-  .home-project__description { min-height: auto; }
-  .home-project__logo--siu img { width: 110px; }
-  .home-footer { flex-wrap: wrap; }
+
+.home-hero__category {
+  margin: 32px 0 0;
+  font: 400 12px Arial, sans-serif;
+  letter-spacing: .25em;
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-/* ========================================
-      HOME PROJECTS
-    ======================================== */
+.home-hero__tagline {
+  margin: 12px 0 0;
+  font: 400 10px Arial, sans-serif;
+  letter-spacing: .22em;
+  opacity: .7;
+}
 
-    .home-projects {
-      padding: clamp(90px, 12vw, 150px) clamp(26px, 8vw, 90px);
-      background: #f7f7f4;
-    }
+.home-hero__scroll {
+  position: absolute;
+  right: clamp(28px, 8vw, 150px);
+  bottom: 35px;
+  font: 400 9px Arial, sans-serif;
+  letter-spacing: .16em;
+}
 
-    .home-projects__head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
+/* 03. About */
+.home-section {
+  padding: clamp(95px, 11vw, 155px) clamp(28px, 8vw, 150px);
+}
 
-    .home-projects__label {
-      font-size: 10px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: #6d726d;
-    }
+.home-section__meta {
+  margin-bottom: 65px;
+  font: 400 10px Arial, sans-serif;
+  letter-spacing: .16em;
+}
 
-    .home-projects__title {
-      margin: 0;
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(42px, 5vw, 68px);
-      font-weight: 400;
-      line-height: 1;
-    }
+.home-about {
+  background: var(--paper, #fafbf9);
+}
 
-    .project-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border-radius: 18px;
-      overflow: hidden;
-    }
+.home-about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(50px, 8vw, 120px);
+  align-items: start;
+}
 
-    .project-panel {
-      min-height: 560px;
-      position: relative;
-    }
+.home-about h2 {
+  margin: 0;
+  font-size: clamp(35px, 4.8vw, 76px);
+  font-weight: 300;
+  letter-spacing: .06em;
+  line-height: 1.5;
+}
 
-    .project-panel__inner {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: clamp(32px, 4vw, 48px);
-    }
+.home-about__detail {
+  max-width: 500px;
+}
 
-    .project-panel--siu {
-      background: #bcc7c9;
-      color: #232624;
-    }
+.home-about__detail p {
+  margin: 0 0 36px;
+  font-size: clamp(13px, 1.15vw, 15px);
+  letter-spacing: .04em;
+  line-height: 2.6;
+}
 
-    .project-panel--filo {
-      background: #172338;
-      color: #f7f6f3;
-    }
+.home-text-link {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid currentColor;
+  font-size: 12px;
+  letter-spacing: .07em;
+}
 
-    .project-panel__eyebrow {
-      font-size: 10px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      opacity: .85;
-    }
+/* 04. Projects: section */
+.home-projects {
+  padding: clamp(90px, 12vw, 150px) clamp(26px, 8vw, 90px);
+  background: #f7f7f4;
+}
 
-    .project-panel__main {
-      display: flex;
-      flex-direction: column;
-      gap: 26px;
-      align-items: flex-start;
-    }
+.home-projects__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 40px;
+}
 
-    .project-panel__logo {
-      display: block;
-      height: 220px;
-      object-fit: contain;
-      object-position: left center;
-    }
+.home-projects__label {
+  color: #6d726d;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
 
-    .project-panel__logo--siu {
-      width: clamp(100px, 12vw, 150px);
-    }
+.home-projects__title {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 1;
+}
 
-    .project-panel__logo--filo {
-      width: clamp(180px, 18vw, 290px);
-    }
+.project-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border-radius: 18px;
+}
 
-    .project-panel__description {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.9;
-      letter-spacing: .03em;
-    }
+/* 05. Projects: card layout */
+.project-panel {
+  min-width: 0;
+  min-height: 560px;
+}
 
-    .project-panel__links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px 28px;
-      align-items: center;
-    }
+.project-panel--siu {
+  background: #bcc7c9;
+  color: #232624;
+}
 
-    .project-panel__link,
-    .project-panel__soon {
-      font-size: 12px;
-      letter-spacing: .08em;
-    }
+.project-panel--filo {
+  background: #172338;
+  color: #f7f6f3;
+}
 
-    .project-panel__link {
-      text-decoration: underline;
-      text-underline-offset: 6px;
-    }
+.project-panel__inner {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100%;
+  min-height: 560px;
+  padding: clamp(32px, 4vw, 48px);
+}
 
-    .project-panel__soon {
-      opacity: .82;
-    }
+.project-panel__eyebrow {
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .85;
+}
 
-    /* Mobile */
-    @media (max-width: 760px) {
-      .home-projects__head {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 28px;
-      }
+/* Both cards use the same fixed logo row and description row. */
+.project-panel__main {
+  display: grid;
+  grid-template-rows: 170px auto;
+  align-content: center;
+  gap: 24px;
+  min-width: 0;
+}
 
-      .project-split {
-        grid-template-columns: 1fr;
-      }
+/* Both assets are trimmed to nearly identical aspect ratios. */
+.project-logo-slot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 170px;
+  min-width: 0;
+}
 
-      .project-panel {
-        min-height: 360px;
-      }
+.project-logo-slot img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  object-fit: contain;
+  transform: none;
+}
 
-      .project-panel__inner {
-        padding: 28px 24px;
-      }
+/* Keep equal dimensions for the optically cropped logos. */
+.project-logo-slot .project-panel__logo--siu,
+.project-logo-slot .project-panel__logo--filo {
+  width: min(245px, 100%);
+}
 
-      .project-panel__description {
-        font-size: 15px;
-      }
+.project-panel__description {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: .03em;
+}
 
-      .project-panel__logo {
-        height: 180px;
-      }
-    }
+.project-panel__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+}
 
+.project-panel__link,
+.project-panel__soon {
+  font-size: 12px;
+  letter-spacing: .08em;
+}
 
-/* Siu Logo — Final */
+.project-panel__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
 
-    .siu-logo-frame {
-      width: clamp(175px, 16vw, 220px);
-      max-width: 100%;
-      height: auto;
-      overflow: visible;
-    }
+.project-panel__soon {
+  opacity: .82;
+}
 
-    .siu-logo-image {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      transform: none;
-    }
+/* 06. Footer */
+.home-footer {
+  gap: 20px;
+}
 
-    @media (max-width: 760px) {
-      .siu-logo-frame {
-        width: 190px;
-      }
-    }
+.home-footer a {
+  white-space: nowrap;
+}
 
+/* 07. Responsive */
+@media (max-width: 760px) {
+  .home-projects__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .project-split {
+    grid-template-columns: 1fr;
+  }
+
+  .project-panel,
+  .project-panel__inner {
+    min-height: 380px;
+  }
+
+  .project-panel__inner {
+    padding: 28px 24px;
+  }
+
+  .project-panel__main {
+    grid-template-rows: 130px auto;
+    gap: 18px;
+  }
+
+  .project-logo-slot {
+    height: 130px;
+  }
+
+  .project-logo-slot .project-panel__logo--siu,
+  .project-logo-slot .project-panel__logo--filo {
+    width: min(210px, 100%);
+  }
+
+  .project-panel__description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 700px) {
+  .home-hero {
+    min-height: calc(100svh - 100px);
+  }
+
+  .home-hero h1 {
+    padding-left: .13em;
+    font-size: 19vw;
+    letter-spacing: .13em;
+  }
+
+  .home-section {
+    padding: 85px 24px;
+  }
+
+  .home-section__meta {
+    margin-bottom: 42px;
+  }
+
+  .home-about__grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .home-about__detail p {
+    margin-bottom: 28px;
+  }
+
+  .home-footer {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
