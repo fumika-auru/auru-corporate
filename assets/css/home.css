@@ -114,7 +114,12 @@
   letter-spacing: .04em;
   line-height: 2.6;
 }
-
+.home-about__detail .home-about__company {
+  margin-bottom: 28px;
+  color: #555d57;
+  font-size: 12px;
+  line-height: 2.4;
+}
 .home-text-link {
   display: inline-flex;
   justify-content: space-between;
